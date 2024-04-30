@@ -8,9 +8,6 @@ def start_screen(stdscr):
 
     Args:
         stdscr (curses.window): The curses window object.
-
-    Returns:
-        None
     """
     stdscr.clear()
     stdscr.addstr("Welcome to the Speed Typing Test!")
@@ -25,9 +22,6 @@ def wpm_test(stdscr):
 
     Args:
         stdscr (curses.window): The main window object of the curses library.
-
-    Returns:
-        None
     """
     target_text = "Hello world this is some test text for this app"
     current_text = []
@@ -53,17 +47,13 @@ def wpm_test(stdscr):
             current_text.append(key)
 
 
-
 def main(stdscr):
     """
-    Main function that initializes the curses screen, sets color pairs, displays the start screen,
+    Main function that creates the curses screen, sets color pairs, displays start screen,
     and starts the word per minute (WPM) test.
 
     Args:
-        stdscr (curses.window): The curses window object representing the screen.
-
-    Returns:
-        None
+        stdscr (curses.window): The curses window object showing the screen.
     """
     curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)
     curses.init_pair(2, curses.COLOR_RED, curses.COLOR_BLACK)
