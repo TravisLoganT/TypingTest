@@ -49,7 +49,7 @@ def wpm_test(stdscr):
 
 def main(stdscr):
     """
-    Main function that creates the curses screen, sets color pairs, displays start screen,
+    Main function that creates the screen, sets color pairs, displays start screen,
     and starts the word per minute (WPM) test.
 
     Args:
