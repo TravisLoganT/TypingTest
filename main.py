@@ -57,8 +57,11 @@ def wpm_test(stdscr):
         stdscr.clear()
         display_text(stdscr, target_text, current_text, wpm)
         stdscr.refresh()
-        key = stdscr.getkey()
-
+        
+        try:
+            key = stdscr.getkey()
+        except:
+            continue
         if ord(key) == 27:
             break
 
