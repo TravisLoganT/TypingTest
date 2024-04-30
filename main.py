@@ -38,7 +38,7 @@ def wpm_test(stdscr):
     
         for char in current_text:
             stdscr.addstr(char, curses.color_pair(1))
- 
+
         stdscr.refresh()
 
         key = stdscr.getkey()
@@ -51,8 +51,8 @@ def wpm_test(stdscr):
                 current_text.pop()
         else:
             current_text.append(key)
-        
-        
+
+
 
 def main(stdscr):
     """
