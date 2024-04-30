@@ -15,8 +15,8 @@ def start_screen(stdscr):
     stdscr.addstr("\nPress any key to start the test.")
     stdscr.refresh()
     stdscr.getkey()
-    
-    
+
+
 def display_text(stdscr, target, current, wpm=0):
     """
     Function to display the target text and the current text typed by the user.
@@ -29,14 +29,14 @@ def display_text(stdscr, target, current, wpm=0):
     """
     stdscr.addstr(target)
     stdscr.addstr(1, 0, f"WPM: {wpm}")
-    
+
     for i, char in enumerate(current):
         correct_char = target[i]
         color = curses.color_pair(1)
         if char != correct_char:
             color = curses.color_pair(2)
         stdscr.addstr(0, i, char, color)
-    
+
 
 def load_text():
     """
