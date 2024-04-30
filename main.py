@@ -50,6 +50,7 @@ def load_text():
         lines = f.readlines()
         return random.choice(lines).strip()
 
+
 def wpm_test(stdscr):
     """
     Function to perform a typing test using curses library.
@@ -108,3 +109,4 @@ def main(stdscr):
             break
 
 wrapper(main)
+
