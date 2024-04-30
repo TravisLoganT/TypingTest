@@ -14,6 +14,27 @@ def start_screen(stdscr):
     stdscr.addstr("\nPress any key to start the test.")
     stdscr.refresh()
     stdscr.getkey()
+    
+    
+def display_text(stdscr, target, current, wpm=0):
+    """
+    Function to display the target text and the current text typed by the user.
+
+    Args:
+        stdscr (curses.window): The curses window object.
+        target (str): The target text to be typed by the user.
+        current (str): The current text typed by the user.
+        wpm (int): The words per minute (WPM) score of the user.
+    """
+    stdscr.addstr(target)
+    
+    for i, char in enumerate(current):
+        correct_char = target[i]
+        color = curses.color_pair(1)
+        if char != correct_char:
+            color = curses.color_pair(2)
+        stdscr.addstr(0, i, char, color)
+    
 
 
 def wpm_test(stdscr):
@@ -28,11 +49,7 @@ def wpm_test(stdscr):
 
     while True:
         stdscr.clear()
-        stdscr.addstr(target_text)
-    
-        for char in current_text:
-            stdscr.addstr(char, curses.color_pair(1))
-
+        display_text(stdscr, target_text, current_text)
         stdscr.refresh()
 
         key = stdscr.getkey()
