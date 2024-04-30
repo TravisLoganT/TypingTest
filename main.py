@@ -1,6 +1,7 @@
 import curses
 from curses import wrapper
 import time
+import random
 
 def start_screen(stdscr):
     """
@@ -37,6 +38,17 @@ def display_text(stdscr, target, current, wpm=0):
         stdscr.addstr(0, i, char, color)
     
 
+def load_text():
+    """
+    Load a random line of text from the file "writing_texts.txt".
+
+    Returns:
+        str: A random line of text from the file.
+
+    """
+    with open("writing_texts.txt", "r") as f:
+        lines = f.readlines()
+        return random.choice(lines).strip()
 
 def wpm_test(stdscr):
     """
@@ -45,7 +57,7 @@ def wpm_test(stdscr):
     Args:
         stdscr (curses.window): The main window object of the curses library.
     """
-    target_text = "Hello world this is some test text for this app"
+    target_text = load_text()
     current_text = []
     wpm = 0
     start_time = time.time()
